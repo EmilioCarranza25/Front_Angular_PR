@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="mb-3" fxLayout="row" fxLayoutAlign="space-around center">
+    <h2>Inicio</h2>
+  </div>
+  <div class="mb-3" fxLayout="row" fxLayoutAlign="space-around center">
+    <label for="exampleFormControlTextarea1" class="form-label"
+      >Tipo de documento</label
+    >
+    <select
+      class="form-select"
+      aria-label="Default select example"
+      required="true"
+    >
+      <option [value]="null">Seleccione tipo de documento</option>
+      <option *ngFor="let item of typeDocument" [value]="item">
+        {{ item }}
+      </option>
+    </select>
+  </div>
+  <div class="mb-3" fxLayout="row" fxLayoutAlign="space-around center">
+    <label for="exampleFormControlTextarea1" class="form-label"
+      >Número de documento</label
+    >
+    <br />
+    <input
+      class="form-control"
+      type="number"
+      [ngModel]="mymodel"
+      (ngModelChange)="valuechange($event)"
+      min="10000000"
+      max="99999999999"
+      required="true"
+    />
+  </div>
+  <div class="mb-3" fxLayout="row" fxLayoutAlign="space-around center">
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="submitPage()"
+      [disabled]="disabledBottun"
+    >
+      Buscar
+    </button>
+  </div>
+</div>
